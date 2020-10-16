@@ -1,12 +1,14 @@
 X-FACTR is a multilingual benchmark for probing factual knowledge in language models.
-Prompts in 13 languages are created by native speakers to probe factual knowledge in LMs by having them fill in the blanks of prompts such as "Punta Cana is located in \_."
+Prompts in 23 languages are created by native speakers to probe factual knowledge in LMs by having them fill in the blanks of prompts such as "Punta Cana is located in \_."
 We provide both the benchmark containing prompts and facts and the code to evaluate LMs.
-For more details, check out our paper [X-FACTR: Multilingual Factual Knowledge Retrieval from Pretrained Language Models](link)
+For more details, check out our paper [X-FACTR: Multilingual Factual Knowledge Retrieval from Pretrained Language Models](https://arxiv.org/abs/2010.06189) and [code](https://github.com/jzbjyb/X-FACTR).
 
 # Install
 
 Clone the Github repository and run the following command:
 ```shell
+git clone https://github.com/jzbjyb/X-FACTR.git
+cd X-FACTR
 conda create -n xfactr -y python=3.7 && conda activate xfactr && ./setup.sh
 ```
 
@@ -29,7 +31,7 @@ python scripts/probe.py --model $LM --lang $LANG --pred_dir $OUTPUT --init_metho
 # Benchmark
 
 ## Supported languages
-- `en` (English), `fr` (French), `nl` (Dutch), `es` (Spanish), `ru` (Russian), `zh` (Chinese), `he` (Hebrew), `tr` (Turkish), `ko` (Korean), `vi` (Vietnamese), `el` (Greek), `mr` (Marathi), `yo` (Yoruba)
+- `en` (English), `fr` (French), `nl` (Dutch), `ru` (Russian), `es` (Spanish), `jp` (Japanese), `vi` (Vietnamese), `zh` (Chinese), `hu` (Hungarian), `ko` (Korean), `tr` (Turkish), `he` (Hebrew), `el` (Greek), `war` (Waray), `mr` (Marathi), `mg` (Malagasy), `bn` (Bengali), `tl` (Tagalog), `sw` (Swahili), `pa` (Punjabi), `ceb` (Cebuano), `yo` (Yoruba), `ilo` (Ilokano)
 
 ## Supported LMs
 - [multilingual BERT](https://github.com/google-research/bert/blob/master/multilingual.md): `mbert_base` 
@@ -39,7 +41,7 @@ python scripts/probe.py --model $LM --lang $LANG --pred_dir $OUTPUT --init_metho
 
 ## Dataset
 - `data/TREx-relations.jsonl`: metadata of 46 relations.
-- `data/TREx_prompts.csv`: manually created prompts in 13 languages.
+- `data/TREx_prompts.csv`: manually created prompts in 23 languages.
 - `data/mTRExf_unicode_escape.txt`: entity names in different languages.
 - `data/mTRExf_gender.txt`: gender information of entities.
 - `data/mTRExf_instanceof.txt`: "instance-of" property of entities.
